@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { projectAuth } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
+import { useEffect } from "react";
 
 export const useSignup = () => {
+  const [isCalcelled, setIsCancelled] = useState(false);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { dispatch } = useAuthContext();
@@ -16,7 +18,8 @@ export const useSignup = () => {
         email,
         password
       );
-      console.log(res);
+
+      // check if signup was unsuccesful
       if (!res) throw new Error("Signup could not be completed");
 
       // Add display name
@@ -24,14 +27,23 @@ export const useSignup = () => {
 
       // dispatch login action with returned user info
       dispatch({ type: "LOGIN", payload: res.user });
-      setIsLoading(false);
-      setError(null);
+
+      // update state if component is still mounted
+      if (!isCalcelled) {
+        setError(null);
+        setIsLoading(false);
+      }
     } catch (err) {
-      console.log(err);
-      setIsLoading(false);
-      setError(err.message);
+      if (!isCalcelled) {
+        setIsLoading(false);
+        setError(err.message);
+      }
     }
   };
+  // Clean up function incase component is unmunted while still signing up/fetching data
+  useEffect(() => {
+    return () => setIsCancelled(true);
+  });
 
   return { signup, error, isLoading };
 };
