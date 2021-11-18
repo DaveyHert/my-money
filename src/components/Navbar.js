@@ -12,19 +12,23 @@ export default function Navbar() {
         <li className={style.title}>
           <Link to='/'>My Money</Link>
         </li>
-        {user ? (
-          <button className='btn' onClick={logout}>
-            Logout
-          </button>
-        ) : (
+
+        {!user && (
           <>
             <li>
               <Link to='/login'>Login</Link>
             </li>
-
             <li>
               <Link to='/signup'>Signup</Link>
             </li>
+          </>
+        )}
+        {user && (
+          <>
+            <li>Hello {user.displayName}</li>
+            <button className='btn' onClick={logout}>
+              Logout
+            </button>
           </>
         )}
       </ul>
