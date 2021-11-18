@@ -2,12 +2,14 @@ import { useState } from "react";
 import { projectAuth } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
 import { useEffect } from "react";
+import { useNavigate } from "react-router";
 
 export const useSignup = () => {
-  const [isCalcelled, setIsCancelled] = useState(false);
+  const [isCancelled, setIsCancelled] = useState(false);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { dispatch } = useAuthContext();
+  const navigator = useNavigate();
 
   const signup = async (email, password, displayName) => {
     setError(null);
@@ -29,12 +31,13 @@ export const useSignup = () => {
       dispatch({ type: "LOGIN", payload: res.user });
 
       // update state if component is still mounted
-      if (!isCalcelled) {
+      if (!isCancelled) {
         setError(null);
         setIsLoading(false);
+        navigator("/");
       }
     } catch (err) {
-      if (!isCalcelled) {
+      if (!isCancelled) {
         setIsLoading(false);
         setError(err.message);
       }
@@ -43,7 +46,7 @@ export const useSignup = () => {
   // Clean up function incase component is unmunted while still signing up/fetching data
   useEffect(() => {
     return () => setIsCancelled(true);
-  });
+  }, []);
 
   return { signup, error, isLoading };
 };
