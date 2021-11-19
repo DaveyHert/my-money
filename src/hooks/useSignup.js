@@ -2,14 +2,12 @@ import { useState } from "react";
 import { projectAuth } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
 import { useEffect } from "react";
-import { useNavigate } from "react-router";
 
 export const useSignup = () => {
   const [isCancelled, setIsCancelled] = useState(false);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { dispatch } = useAuthContext();
-  const navigator = useNavigate();
 
   const signup = async (email, password, displayName) => {
     setError(null);
@@ -34,7 +32,6 @@ export const useSignup = () => {
       if (!isCancelled) {
         setError(null);
         setIsLoading(false);
-        navigator("/");
       }
     } catch (err) {
       if (!isCancelled) {
