@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import { projectAuth } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
-import { useNavigate } from "react-router";
 
 export const useLogin = () => {
   const [isCancelled, setIsCancelled] = useState(false);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { dispatch } = useAuthContext();
-  const navigator = useNavigate();
 
   const login = async (email, password) => {
     setError(null);
@@ -31,7 +29,6 @@ export const useLogin = () => {
       if (!isCancelled) {
         setError(null);
         setIsLoading(false);
-        navigator("/");
       }
     } catch (err) {
       // check if component is still mounted
