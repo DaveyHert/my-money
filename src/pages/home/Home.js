@@ -10,7 +10,7 @@ export default function Home() {
       <div className='content'>Transaction List</div>
 
       <div className={style.sidebar}>
-        <TransactionForm />
+        <TransactionForm uid={user.uid} />
       </div>
     </div>
   );
