@@ -19,5 +19,8 @@ firebase.initializeApp(firebaseConfig);
 const projectFirestore = firebase.firestore();
 const projectAuth = firebase.auth();
 
+// time stamps
+const timeStamp = firebase.firestore.Timestamp;
+
 // export services for use
-export { projectFirestore, projectAuth };
+export { projectAuth, projectFirestore, timeStamp };
