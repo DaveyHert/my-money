@@ -66,7 +66,7 @@ export const useFirestore = (collection) => {
   const deleteDocument = async (id) => {
     dispatch({ type: "IS_LOADING" });
     try {
-      const res = await ref.doc(id).delete();
+      await ref.doc(id).delete();
     } catch (err) {
       dispatchIfNotCancelled({ type: "ERROR", payload: err.message });
     }
