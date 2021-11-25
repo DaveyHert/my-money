@@ -12,7 +12,6 @@ import Navbar from "./components/Navbar";
 
 function App() {
   const { user, authIsReady } = useAuthContext();
-  console.log(user, authIsReady);
   return (
     <div className='App'>
       {authIsReady && (
