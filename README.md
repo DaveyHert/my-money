@@ -1,4 +1,13 @@
-# Getting Started with Create React App
+# My Money React App
+This project was made for my Personal Expense Tracker
+
+## What it does
+
+When it comes to tracking your spending, there can be different reasons for doing it. Maybe you’re curious about where your money is going, are working towards a specific goal, My Money lets you write expenses down as they happen so you can track your spending using a simple React App.
+
+
+
+## How to get Started using My Money React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
