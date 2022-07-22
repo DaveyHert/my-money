@@ -5,6 +5,8 @@ This project was made for my Personal Expense Tracker
 
 When it comes to tracking your spending, there can be different reasons for doing it. Maybe you’re curious about where your money is going, are working towards a specific goal, My Money lets you write expenses down as they happen so you can track your spending using a simple React App.
 
+## Functions
+It's a budget and expense tracker app that lets you sign up/sign in, authenticates you using Google Firebase Authentication and lets you create expenses made that are uploaded to Firestore as collections. Each authenticated user's expenses are isolated and are rendered for that specific user whenever they log into the app.
 
 
 ## How to get Started using My Money React App
@@ -40,10 +42,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
@@ -62,13 +60,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/c
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
 
