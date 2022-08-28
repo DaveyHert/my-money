@@ -1,7 +1,7 @@
 import { useState, useReducer, useEffect } from "react";
 import { projectFirestore, timeStamp } from "../firebase/config";
 
-// Initial state (defined outside the hook because we don't want it recreated ech time the hook is used)
+// Initial state (defined outside the hook because we don't want it recreated each time the hook is used)
 const initialState = {
   document: null,
   isLoading: false,
